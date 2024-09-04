@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css  ">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>DATA AYAH </title>
+    <style>
+        body {
+            font-family: 'Poppins';
+            margin: 20px;
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        select,
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        #wrapper {
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #1e201e;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #576458;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Data Papskyyyyyy</h1>
+    <form action="">
+        <div class="all">
+            <div class="ada">
+                <label for="ada">Masih Hidup</label>
+                <input type="radio" name="sw" id="ada" value="Masih Hidup" onclick="ChangeForm(this)">
+            </div>
+            <div class="meninggal">
+                <label for="meninggal">Sudah Meninggal</label>
+                <input type="radio" name="sw" id="meninggal" value="Meninggal" onclick="ChangeForm(this)">
+            </div>
+            <div class="tidak">
+                <label for="tidak">Tidak Ada Keterangan</label>
+                <input type="radio" name="sw" id="tidak" value="Tidak Ada Keterangan" onclick="ChangeForm(this)">
+            </div>
+        </div>
+
+        <div class="hidup_mati">
+            <label for="pendidikan_ayah">Pendidikan Ayah</label>
+            <select id="pendidikan_ayah" name="pendidikan_ayah">
+                <option value="" disabled selected>Pilih</option>
+                <option value="SD">SD</option>
+                <option value="SMP">SMP</option>
+                <option value="SMA">SMA/SMK</option>
+                <option value="Kuliah">Kuliah</option>
+            </select>
+
+            <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
+            <select id="pekerjaan_ayah" name="pekerjaan_ayah">
+                <option value="" disabled selected>Pilih</option>
+                <option value="PNS">PNS</option>
+                <option value="Wirausaha">Wirausaha</option>
+                <option value="Wiraswasta">Wiraswasta</option>
+                <option value="Tidak Bekerja">Tidak Bekerja</option>
+            </select>
+
+            <label for="deskripsi_pekerjaan">Deskripsi Pekerjaan Ayah</label>
+            <input type="text" id="deskripsi_pekerjaan" name="deskripsi"
+                placeholder="Masukkan Nama Pekerjaan Secara Spesifik">
+
+            <label for="gaji_ayah">Masukkan Penghasilan Ayah selama 1 bulan</label>
+            <input type="text" id="gaji_ayah" name="gaji" placeholder="Masukkan Gaji Ayah di sini">
+
+            <label for="Lama_bekerja">Lama Bekerja</label>
+            <input type="text" placeholder="Detail ayah bekerja atau berapa lama bekerja">
+        </div>
+
+        <div id="wrapper"></div>
+    </form>
+
+    <script>
+        function ChangeForm(e) {
+            const hidupMatiDiv = document.querySelector('.hidup_mati');
+            const wrapper = document.getElementById('wrapper');
+
+            if (hidupMatiDiv) {
+                if (e.value === "Masih Hidup") {
+                    hidupMatiDiv.style.display = "block";
+                    wrapper.innerHTML = `
+        <p><strong>Detail Ayah Bekerja, berapa lama sudah bekerja, kondisi kesehatan, dan kondisi karir profesinya.</strong><br><br>
+            <input type="text">
+        `;
+                    wrapper.style.display = "block";
+                } else if (e.value === "Meninggal") {
+                    hidupMatiDiv.style.display = "block";
+                    wrapper.innerHTML = `
+        <p><strong>Detail Pekerjaan Ayah selama hidup.</strong></p>
+        <input type = "text">
+        `
+                } else {
+                    hidupMatiDiv.style.display = "none";
+                    wrapper.style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

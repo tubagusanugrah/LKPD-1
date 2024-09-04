@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LKPD NO 4</title>
+</head>
+<body>
+
+    <select id="imageSelect">
+        <option value="https://awsimages.detik.net.id/community/media/visual/2022/03/21/youtuber-dede-inoen-ngumpet-di-kolong-rel-kereta_169.jpeg?w=650&q=80">Gambar 1</option>
+        <option value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdiIiSgwiHlmmi0I6w77_axIudBDo1whOs8Q&s">Gambar 2</option>
+        <option value="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/01/2024/05/22/Pegi-alias-Perong-4076295681.jpg">Gambar 3</option>
+    </select>
+
+    <select id="opacitySelect">
+        <option value="1">1</option>
+        <option value="0.5">0.5</option>
+        <option value="0.2">0.2</option>
+    </select>
+
+    <input type="submit" value="Ubah" onclick="changeImageAndOpacity()">
+
+    <br><br>
+
+    <img id="imageDisplay" src="https://awsimages.detik.net.id/community/media/visual/2022/03/21/youtuber-dede-inoen-ngumpet-di-kolong-rel-kereta_169.jpeg?w=650&q=80" alt="Selected Image" style="opacity: 1; width: 300px;">
+
+    <script>
+        function changeImageAndOpacity() {
+            var imageSelect = document.getElementById("imageSelect");
+            var opacitySelect = document.getElementById("opacitySelect");
+            var imageDisplay = document.getElementById("imageDisplay");
+            var selectedImage = imageSelect.value;
+            var selectedOpacity = opacitySelect.value;
+
+            imageDisplay.src = selectedImage;
+            imageDisplay.style.opacity = selectedOpacity;
+        }
+    </script>
+
+</body>
+</html>

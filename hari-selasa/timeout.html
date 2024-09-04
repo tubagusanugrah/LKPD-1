@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Out</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<body onload="startTimer()" style="font-family: 'Poppins';">
+    <h2>Forum</h2>
+    <form onsubmit="submitForm(event)">
+        <label for="name">Nama:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="age">Umur:</label><br>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="Laki-laki" required>
+        <label for="male">Laki-laki</label><br>
+        <input type="radio" id="female" name="gender" value="Perempuan" required>
+        <label for="female">Perempuan</label><br><br>
+
+        <input type="submit" value="Kirim">
+    </form>
+
+    <script>
+        let timeout;
+
+        function startTimer() {
+            timeout = setTimeout(() => {
+                alert("Yaahhh, waktu Anda habis! :((");
+            }, 10000);
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            clearTimeout(timeout);
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+
+            alert(`Nama: ${name}\nUmur: ${age}\nGender: ${gender}`);
+        }
+    </script>
+</body>
+
+</html>
